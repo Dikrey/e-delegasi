@@ -795,7 +795,7 @@ Kredit ini adalah **bagian tak terpisahkan** dari lisensi proyek.
 [![Repo](https://img.shields.io/badge/Repo-Dikrey/e--delegasi-6C5CE7?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Dikrey/e-delegasi)
 [![GitHub](https://img.shields.io/badge/GitHub-Dikrey-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Dikrey)
 [![TikTok](https://img.shields.io/badge/TikTok-@raihan_official0307-69C9D0?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@raihan_official0307)
-[![Email](https://img.shields.io/badge/Email-DM%20me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:github.com/Dikrey)
+[![Email](https://img.shields.io/badge/Email-DM%20me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:owner@visualcodepo.my.id)
 
 ---
 
