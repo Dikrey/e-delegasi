@@ -56,7 +56,8 @@ terintegrasi yang menyatukan siklus penuh administrasi kantor:
 ## 📸 Preview
 
 <div align="center">
-  <img src="docs/laravel-surat-menyurat-v1.png" alt="Tampilan Utama E-DELEGASI" width="100%">
+  <img src="docs/loginpage.png" alt="Tampilan Login E-DELEGASI" width="100%">
+  <img src="docs/e-delegasi.png" alt="Tampilan Utama E-DELEGASI" width="100%">
 </div>
 
 <div align="center">
