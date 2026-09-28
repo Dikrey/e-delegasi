@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'menu' => 'Laporan',
+    'delegation' => 'Laporan Delegasi',
+    'delegation_subtitle' => 'Rekapitulasi delegasi beserta progres dan statusnya.',
+    'delegation_list' => 'Daftar Laporan Delegasi',
+    'task' => 'Laporan Tugas',
+    'task_subtitle' => 'Rekapitulasi tugas staff beserta progresnya.',
+    'task_list' => 'Daftar Laporan Tugas',
+    'agenda' => 'Laporan Agenda',
+    'agenda_subtitle' => 'Rekapitulasi agenda pimpinan berdasarkan periode.',
+    'agenda_list' => 'Daftar Laporan Agenda',
+    'print' => 'Cetak',
+    'from' => 'Dari Tanggal',
+    'to' => 'Sampai Tanggal',
+    'period' => 'Periode',
+    'period_day' => 'Hari Ini',
+    'period_week' => 'Minggu Ini',
+    'period_month' => 'Bulan Ini',
+    'period_upcoming' => 'Mendatang',
+    'period_done' => 'Selesai',
+    'this_month' => 'Bulan Ini',
+    'upcoming_30' => '30 Hari ke Depan',
+];

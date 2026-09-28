@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'menu' => 'Reports',
+    'delegation' => 'Delegation Report',
+    'delegation_subtitle' => 'Recapitulation of delegations with their progress and status.',
+    'delegation_list' => 'Delegation Report List',
+    'task' => 'Task Report',
+    'task_subtitle' => 'Recapitulation of staff tasks with their progress.',
+    'task_list' => 'Task Report List',
+    'agenda' => 'Agenda Report',
+    'agenda_subtitle' => 'Recapitulation of leadership agendas by period.',
+    'agenda_list' => 'Agenda Report List',
+    'print' => 'Print',
+    'from' => 'From Date',
+    'to' => 'To Date',
+    'period' => 'Period',
+    'period_day' => 'Today',
+    'period_week' => 'This Week',
+    'period_month' => 'This Month',
+    'period_upcoming' => 'Upcoming',
+    'period_done' => 'Done',
+    'this_month' => 'This Month',
+    'upcoming_30' => 'Next 30 Days',
+];

@@ -1,0 +1,902 @@
+/* =====================================================
+   Surat - Modern UI animations & polish
+   ===================================================== */
+
+:root {
+    --surat-primary: #6d67e4;
+    --surat-primary-dark: #5448d6;
+    --surat-primary-deep: #2b2488;
+    --surat-accent: #36f1cd;
+    --surat-pink: #ff6bcb;
+}
+
+::selection {
+    background: rgba(109, 103, 228, 0.25);
+}
+
+/* Page content entrance.
+   NOTE: fill-mode must NOT be `both`/`forwards` — the retained `transform`
+   on .container-xxl turns it into a containing block and breaks every
+   `position: fixed` element inside it (Bootstrap modals + the grey backdrop),
+   which froze the user-management & reference modals. */
+.content-wrapper .container-xxl {
+    animation: pageFade 0.5s ease backwards;
+}
+
+@keyframes pageFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Breadcrumb buttons animation */
+.btn-primary, .btn-info, .btn-danger, .btn-success {
+    transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+}
+.btn-primary:hover, .btn-info:hover, .btn-danger:hover, .btn-success:hover {
+    transform: translateY(-2px);
+}
+
+/* Cards subtle lift */
+.card {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Table row hover highlight */
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+.table tbody tr:hover {
+    background-color: rgba(109, 103, 228, 0.04) !important;
+}
+
+/* Navbar user avatar tab */
+.navbar .dropdown-user .avatar {
+    cursor: pointer;
+    transition: box-shadow 0.25s ease;
+}
+.navbar .dropdown-user .avatar:hover {
+    box-shadow: 0 0 0 4px rgba(109, 103, 228, 0.18);
+}
+
+/* =====================================================
+   SIDEBAR - modern light theme (menu structure preserved)
+   ===================================================== */
+
+.layout-menu {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%) !important;
+}
+
+/* Brand area */
+.layout-menu .app-brand {
+    position: relative;
+}
+.app-brand .app-brand-link {
+    border-radius: 12px;
+    transition: background 0.25s ease;
+}
+.app-brand .app-brand-link:hover {
+    background: rgba(109, 103, 228, 0.06);
+}
+
+/* Menu headers with an accent dot */
+.menu-vertical .menu-header {
+    margin-top: 1.1rem;
+}
+.menu-vertical .menu-header .menu-header-text {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+    color: #9aa0bd;
+}
+
+/* Menu link base: rounded & soft */
+.menu-vertical .menu-item > .menu-link {
+    border-radius: 11px;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.menu-vertical .menu-item > .menu-link:hover {
+    transform: translateX(3px);
+}
+
+/* Menu icons tint */
+.menu-vertical .menu-item > .menu-link .menu-icon {
+    color: #8f96be;
+    transition: color 0.25s ease;
+}
+.menu-vertical .menu-item:not(.active) > .menu-link:hover .menu-icon {
+    color: var(--surat-primary);
+}
+
+/* Open submenu toggle */
+.menu-vertical .menu-item.open > .menu-link.menu-toggle {
+    color: var(--surat-primary);
+    font-weight: 600;
+}
+.menu-vertical .menu-item.open > .menu-link.menu-toggle .menu-icon {
+    color: var(--surat-primary);
+}
+
+/* ---- ACTIVE MENU ITEM (gradient + white text, always readable) ---- */
+.menu-vertical .menu-item.active > .menu-link,
+.menu-vertical .menu-item.active > .menu-link:hover {
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--surat-primary), var(--surat-primary-dark));
+    box-shadow: 0 10px 22px -8px rgba(109, 103, 228, 0.55);
+}
+.menu-vertical .menu-item.active > .menu-link .menu-icon,
+.menu-vertical .menu-item.active > .menu-link .menu-icon.rounded-pill {
+    color: #fff !important;
+}
+.menu-vertical .menu-item.active > .menu-link .menu-toggle::after {
+    border-color: #fff;
+}
+
+/* Sub-menu active item */
+.menu-vertical .menu-sub .menu-item.active > .menu-link,
+.menu-vertical .menu-sub .menu-item.active > .menu-link:hover {
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--surat-primary), var(--surat-primary-dark));
+    box-shadow: 0 6px 16px -6px rgba(109, 103, 228, 0.6);
+}
+.menu-vertical .menu-sub .menu-item.active > .menu-link::before {
+    background-color: #fff !important;
+}
+
+/* Sub-menu links on hover stay readable */
+.menu-vertical .menu-sub .menu-item:not(.active) > .menu-link:hover {
+    color: var(--surat-primary);
+    background: rgba(109, 103, 228, 0.07);
+}
+
+/* Active border bar on the right edge */
+.menu-vertical .menu-inner > .menu-item.active::before {
+    background: linear-gradient(180deg, var(--surat-primary), var(--surat-primary-dark));
+}
+
+/* Scrollbar inside sidebar */
+.menu-vertical .ps__thumb-y {
+    background: rgba(109, 103, 228, 0.35) !important;
+}
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+.layout-navbar {
+    border-radius: 0 0 14px 14px;
+}
+
+/* =====================================================
+   DASHBOARD HERO (fix invisible dark heading on blue)
+   ===================================================== */
+.dash-hero h4,
+.dash-hero .h4,
+.dash-hero h4 a,
+.dash-hero .display-4 {
+    color: #fff !important;
+}
+
+/* E-DELEGASI hero (dashboard staff & sekretaris) — greeting fully white */
+.edeleg-hero h4,
+.edeleg-hero .h4,
+.edeleg-hero .display-4,
+.edeleg-hero .fw-bold,
+.edeleg-hero .opacity-75,
+.edeleg-hero p {
+    color: #fff !important;
+}
+.edeleg-hero .badge.bg-white {
+    color: var(--surat-primary) !important;
+    background: #fff !important;
+}
+.edeleg-hero .btn-outline-light {
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+}
+.edeleg-hero .btn-outline-light:hover {
+    color: var(--surat-primary) !important;
+    background: #fff !important;
+}
+.dash-hero p,
+.dash-hero .opacity-75 {
+    color: rgba(255, 255, 255, 0.82) !important;
+}
+.dash-hero .badge {
+    color: var(--surat-primary) !important;
+}
+
+/* Badges glow on hover */
+.badge {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.badge:hover {
+    transform: translateY(-1px);
+}
+
+/* Modal entrance */
+.modal.fade .modal-dialog {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+.modal.fade.show .modal-dialog {
+    transform: none;
+}
+.modal.fade:not(.show) .modal-dialog {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+/* SweetAlert subtle lift */
+.swal2-popup {
+    border-radius: 1.1rem !important;
+}
+
+/* Form controls focus glow */
+.form-control:focus, .form-select:focus {
+    border-color: var(--surat-primary);
+    box-shadow: 0 0 0 4px rgba(109, 103, 228, 0.14);
+}
+
+/* =====================================================
+   PAGE HERO - gradient SaaS banner
+   ===================================================== */
+.page-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    padding: 1.6rem 1.75rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--surat-primary) 0%, var(--surat-primary-dark) 55%, var(--surat-primary-deep) 100%);
+    box-shadow: 0 22px 40px -18px rgba(109, 103, 228, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.page-hero::before,
+.page-hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.page-hero::before {
+    width: 230px;
+    height: 230px;
+    right: -70px;
+    top: -110px;
+    background: radial-gradient(circle, rgba(54, 241, 205, 0.4), transparent 65%);
+}
+.page-hero::after {
+    width: 200px;
+    height: 200px;
+    right: 130px;
+    bottom: -120px;
+    background: radial-gradient(circle, rgba(255, 107, 203, 0.35), transparent 65%);
+}
+.page-hero .page-hero-inner {
+    position: relative;
+    z-index: 1;
+}
+.page-hero h4,
+.page-hero .page-hero-sub {
+    color: #fff !important;
+}
+.page-hero-sub {
+    opacity: 0.82;
+    font-size: 0.92rem;
+    max-width: 56ch;
+}
+.page-hero-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    font-size: 26px;
+    color: var(--surat-primary);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 12px 24px -10px rgba(23, 18, 90, 0.45);
+    flex-shrink: 0;
+}
+.page-hero .btn-hero {
+    background: #fff;
+    color: var(--surat-primary);
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 10px 22px -8px rgba(23, 18, 90, 0.35);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.page-hero .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px -8px rgba(23, 18, 90, 0.45);
+}
+.page-hero .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    padding: 0.32rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* =====================================================
+   MODERN TABLE
+   ===================================================== */
+.table-modern thead th {
+    background: rgba(109, 103, 228, 0.06) !important;
+    color: var(--surat-primary-deep) !important;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(109, 103, 228, 0.18) !important;
+}
+.table-modern tbody td {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+}
+.table-modern tfoot th {
+    border-top: 2px solid rgba(109, 103, 228, 0.18) !important;
+    color: var(--surat-primary-deep);
+    font-size: 0.78rem;
+}
+
+/* =====================================================
+   SIDEBAR ACCOUNT CARD
+   ===================================================== */
+.sidebar-account {
+    margin: 0.6rem 0.75rem 1rem;
+    padding: 1rem;
+    border-radius: 16px;
+    background: linear-gradient(160deg, #f7f7ff 0%, #ffffff 100%);
+    border: 1px solid rgba(109, 103, 228, 0.18);
+    box-shadow: 0 10px 24px -14px rgba(38, 42, 71, 0.35);
+    margin-top: auto;
+}
+/* Keep the account card anchored at the bottom of the fixed sidebar.
+   .menu-inner is a flex-child in a column .menu-vertical; relaxing its
+   height lets the card stay visible while perfect-scrollbar still scrolls. */
+.layout-menu .menu-inner {
+    height: auto !important;
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+}
+.sidebar-account .account-avatar {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: visible;
+    flex-shrink: 0;
+}
+.sidebar-account .account-avatar img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px rgba(109, 103, 228, 0.35);
+}
+.sidebar-account .account-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #322f61;
+    line-height: 1.2;
+    word-break: break-word;
+}
+.sidebar-account .account-role {
+    font-size: 0.74rem;
+    color: #8f96be;
+    text-transform: capitalize;
+}
+.sidebar-account .btn-account-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    width: 100%;
+    border: none;
+    border-radius: 11px;
+    padding: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--surat-primary), var(--surat-primary-dark));
+    box-shadow: 0 8px 18px -8px rgba(109, 103, 228, 0.6);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.sidebar-account .btn-account-logout:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px -8px rgba(109, 103, 228, 0.7);
+}
+
+/* Reusable gradient glyph tile (stat cards, device rows) */
+.dev-glyph {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    font-size: 26px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+/* Reusable live / online pulse dot */
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #36f1a5;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(54, 241, 165, 0.6);
+    animation: statusPulse 1.8s ease-out infinite;
+}
+@keyframes statusPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(54, 241, 165, 0.55); }
+    70%  { box-shadow: 0 0 0 7px rgba(54, 241, 165, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(54, 241, 165, 0); }
+}
+.online-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(54, 241, 165, 0.14);
+    color: #0e9f6e;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+/* =====================================================
+   NAVBAR accent + dropdown polish
+   ===================================================== */
+.layout-navbar {
+    position: relative;
+}
+.layout-navbar::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--surat-primary), var(--surat-accent), var(--surat-pink));
+}
+.navbar .dropdown-user .account-drop-top {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(109, 103, 228, 0.08), rgba(54, 241, 205, 0.08));
+}
+
+/* =====================================================
+   Progress-friendly scrollbar for table areas
+   ===================================================== */
+.table-responsive::-webkit-scrollbar { height: 8px; }
+.table-responsive::-webkit-scrollbar-thumb {
+    background: rgba(109, 103, 228, 0.4);
+    border-radius: 999px;
+}
+.table-responsive::-webkit-scrollbar-track { background: transparent; }
+
+/* =====================================================
+   HERO SEARCH
+   ===================================================== */
+.min-width-0 { min-width: 0; }
+.hero-search {
+    background: rgba(255, 255, 255, 0.94);
+    border: none;
+    border-radius: 12px;
+    padding-left: 2.4rem;
+    min-width: 220px;
+    box-shadow: 0 8px 20px -10px rgba(23, 18, 90, 0.3);
+}
+.hero-search:focus { box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.35); }
+.hero-search-icon {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--surat-primary);
+    font-size: 1.05rem;
+}
+
+/* =====================================================
+   MODERN LETTER CARD (Surat Masuk / Keluar)
+   ===================================================== */
+.letter-card { border-radius: 1.1rem; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.letter-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -14px rgba(38, 42, 71, 0.35) !important;
+}
+.letter-type-icon {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    font-size: 22px;
+    color: #fff;
+}
+.letter-type-icon.incoming {
+    background: linear-gradient(135deg, #22d3ee, #0891b2);
+    box-shadow: 0 8px 16px -8px rgba(8, 145, 178, 0.6);
+}
+.letter-type-icon.outgoing {
+    background: linear-gradient(135deg, #ff6bcb, #f43f5e);
+    box-shadow: 0 8px 16px -8px rgba(244, 63, 94, 0.6);
+}
+.classification-badge {
+    background: rgba(109, 103, 228, 0.12);
+    color: var(--surat-primary-deep);
+    font-size: 0.68rem;
+    font-weight: 600;
+}
+.letter-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #5b5f72;
+    font-size: 0.9rem;
+}
+.file-tile {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    font-size: 18px;
+}
+.file-tile .bx-file { color: #6b7280; }
+.attachment-thumb { object-fit: cover; border: 1px solid rgba(109, 103, 228, 0.15); }
+.attachment-chip { display: inline-flex; transition: transform 0.15s ease; }
+.attachment-chip:hover { transform: translateY(-2px); }
+.btn-icon { width: 34px; height: 34px; display: inline-grid; place-items: center; }
+
+/* =====================================================
+   MODERN GALLERY + PREVIEW
+   ===================================================== */
+.gallery-item { border-radius: 1rem; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.gallery-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px -16px rgba(38, 42, 71, 0.4) !important;
+}
+.gallery-preview-trigger { display: block; cursor: zoom-in; }
+.gallery-cover {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+.gallery-pdf-tile {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: #ef4444;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02));
+}
+.gallery-pdf-tile i { font-size: 3rem; }
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(23, 18, 90, 0.45);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #fff;
+    color: var(--surat-primary);
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.5);
+}
+.gallery-item-body small { max-width: 100%; }
+
+/* =====================================================
+   BOOKING / PERMINTAAN NOMOR
+   ===================================================== */
+.dev-card { border: none; }
+.stat-card {
+    border-radius: 1.1rem;
+    padding: 1.1rem 1.25rem;
+    background: #fff;
+    box-shadow: 0 8px 22px -14px rgba(38, 42, 71, 0.3);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -14px rgba(38, 42, 71, 0.4);
+}
+.stat-label {
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8d93ba;
+}
+.stat-value { font-weight: 800; font-size: 1.7rem; color: #322f61; }
+.glyph-blue { background: linear-gradient(135deg, #22d3ee, #0891b2); }
+.glyph-amber { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.glyph-green { background: linear-gradient(135deg, #34d399, #059669); }
+.glyph-red { background: linear-gradient(135deg, #f87171, #ef4444); }
+.glyph-blue, .glyph-amber, .glyph-green, .glyph-red {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    font-size: 24px;
+    color: #fff;
+    flex-shrink: 0;
+}
+.room-badge {
+    background: rgba(109, 103, 228, 0.12);
+    color: var(--surat-primary-deep);
+    font-weight: 700;
+    border: 1px solid rgba(109, 103, 228, 0.25);
+}
+.preview-panel {
+    background: linear-gradient(150deg, #f7f7ff 0%, #ffffff 60%);
+    border: 1px solid rgba(109, 103, 228, 0.16);
+    border-radius: 1.1rem;
+}
+.preview-number {
+    font-family: 'Roboto Mono', Consolas, monospace;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--surat-primary);
+    background: #fff;
+    border: 1px dashed rgba(109, 103, 228, 0.4);
+    border-radius: 12px;
+    padding: 0.9rem;
+    word-break: break-word;
+}
+.booking-format {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    text-align: center;
+}
+.booking-format-part {
+    background: #fff;
+    border: 1px solid rgba(109, 103, 228, 0.2);
+    border-radius: 8px;
+    padding: 0.25rem 0.6rem;
+}
+.flow-steps { display: flex; flex-direction: column; gap: 0.8rem; }
+.flow-steps li { display: flex; gap: 0.7rem; align-items: flex-start; }
+.flow-dot {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--surat-primary), var(--surat-primary-dark));
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+.flow-steps div { font-size: 0.83rem; color: #5b5f72; }
+.approve-summary { background: rgba(109, 103, 228, 0.06); border: 1px solid rgba(109, 103, 228, 0.14); }
+.alloc-preview { background: rgba(16, 185, 129, 0.05); border: 1px dashed rgba(16, 185, 129, 0.4); }
+.booking-item {
+    background: #fff;
+    border: 1px solid rgba(109, 103, 228, 0.12);
+    border-radius: 1rem;
+    padding: 1rem 1.1rem;
+    transition: box-shadow 0.18s ease;
+}
+.booking-item:hover { box-shadow: 0 10px 24px -16px rgba(38, 42, 71, 0.35); }
+.booking-item-main .text-truncate { word-break: break-word; }
+
+/* Live pulse for realtime indicator */
+.live-pulse { background: #36f1a5; }
+.bg-warning.live-pulse { background: #f59e0b !important; }
+
+/* =====================================================
+   NAVBAR SMART HIDE ON SCROLL
+   ===================================================== */
+#layout-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1080;
+    transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+#layout-navbar.navbar-hidden {
+    transform: translateY(-115%);
+    pointer-events: none;
+}
+#layout-navbar.navbar-elevated {
+    box-shadow: 0 6px 22px -8px rgba(38, 42, 71, 0.25);
+}
+
+/* =====================================================
+   ENHANCED LETTER CARD (transaction pages)
+   ===================================================== */
+.letter-card { border-radius: 1.25rem; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.letter-card .card-body { padding: 1.6rem 1.75rem; }
+.letter-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -14px rgba(38, 42, 71, 0.35) !important;
+}
+.letter-type-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    font-size: 28px;
+}
+.letter-card h6 { font-size: 1.18rem; letter-spacing: 0.02em; line-height: 1.4; }
+.letter-card .letter-desc { font-size: 1rem; line-height: 1.65; -webkit-line-clamp: 3; color: #4a4e6a; }
+.letter-card small { font-size: 0.9rem; }
+.letter-card .file-tile { width: 42px; height: 42px; font-size: 22px; border-radius: 12px; }
+.letter-card .attachment-thumb { width: 42px; height: 42px; }
+.letter-card .btn { padding: 0.45rem 0.9rem; font-size: 0.82rem; }
+.letter-card .badge { font-size: 0.76rem; padding: 0.38em 0.7em; }
+.letter-card .letter-card-main { gap: 0.65rem; display: flex; flex-direction: column; }
+
+/* =====================================================
+   E-DELEGASI: NOTIFICATION DROPDOWN
+   ===================================================== */
+.notification-dropdown {
+    width: 360px;
+    max-width: 92vw;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 18px 40px -18px rgba(38, 42, 71, 0.4);
+}
+.notif-scroll { max-height: 320px; overflow-y: auto; }
+.notif-item {
+    display: block;
+    white-space: normal;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid rgba(38, 42, 71, 0.06);
+    transition: background 0.15s ease;
+}
+.notif-item:last-child { border-bottom: 0; }
+.notif-item:hover { background: rgba(109, 103, 228, 0.08); }
+.notif-item.notif-read { opacity: 0.6; }
+.notif-item:not(.notif-read) { background: rgba(109, 103, 228, 0.05); }
+.notif-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    background: rgba(109, 103, 228, 0.12);
+    color: var(--surat-primary);
+}
+.notif-task { background: rgba(16, 185, 129, 0.14); color: #10b981; }
+.notif-deadline { background: rgba(245, 158, 11, 0.16); color: #f59e0b; }
+.notif-agenda { background: rgba(59, 130, 246, 0.14); color: #3b82f6; }
+.notif-delegation { background: rgba(109, 103, 228, 0.16); color: var(--surat-primary); }
+.notif-system { background: rgba(107, 114, 128, 0.14); color: #6b7280; }
+.notif-item { position: relative; }
+.notif-del { opacity: 0; transition: opacity 0.15s ease; }
+.notif-item:hover .notif-del { opacity: 1; }
+.notif-del-btn:hover { color: #ff3e1d !important; }
+.notif-count { min-width: 22px; text-align: center; }
+
+/* =====================================================
+   E-DELEGASI: PROGRESS & BADGES
+   ===================================================== */
+.progress { background-color: rgba(38, 42, 71, 0.08); border-radius: 999px; }
+.progress-bar { border-radius: 999px; }
+.det-card .card-header { background: transparent; border-bottom: 1px solid rgba(38, 42, 71, 0.06); }
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.content-footer.footer {
+    background: transparent;
+    border-top: 1px solid rgba(38, 42, 71, 0.07);
+    margin-top: 0.5rem;
+}
+.footer-inner {
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+.footer-copy { color: #697a8d; }
+.footer-year { font-weight: 600; color: #566a7f; }
+.footer-dot { color: rgba(86, 106, 127, 0.5); }
+.footer-made { color: #697a8d; }
+.footer-author {
+    font-weight: 700;
+    color: #566a7f;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-author:hover,
+.footer-author:focus { color: var(--surat-primary, #696cff); }
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.28rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--surat-primary, #696cff);
+    background: rgba(109, 103, 228, 0.1);
+    white-space: nowrap;
+}
+.footer-brand i { font-size: 1rem; }
+
+@media (max-width: 767.98px) {
+    .footer-inner { text-align: center; }
+    .footer-brand { margin-top: 0.25rem; }
+}
+
+/* =====================================================
+   DROPDOWN CLIPPING FIX
+   Membebaskan dropdown agar tidak terpotong / tertelan
+   oleh container ber-scroll (mis. .table-responsive).
+   ===================================================== */
+.dropdown-scroll-free { overflow: visible !important; }
+
+/* =====================================================
+   RESPONSIVE — SMALL SCREENS
+   ===================================================== */
+@media (max-width: 991.98px) {
+    .page-hero { padding: 1.25rem 1.25rem; }
+    .page-hero .page-hero-inner { gap: 1rem !important; }
+    .edeleg-hero { padding: 1.5rem 1.25rem !important; }
+    .dash-hero { padding: 1.5rem 1.25rem !important; }
+}
+
+@media (max-width: 575.98px) {
+    .layout-page .content-wrapper .container-xxl { padding-left: 0.85rem; padding-right: 0.85rem; }
+    .page-hero { border-radius: 1rem; padding: 1.1rem; }
+    .page-hero h4 { font-size: 1.15rem !important; }
+    .page-hero .page-hero-sub { font-size: 0.82rem; }
+    .page-hero-icon { width: 44px; height: 44px; font-size: 21px; border-radius: 13px; }
+    .page-hero .btn-hero { padding: 0.35rem 0.7rem; font-size: 0.78rem; }
+    .edeleg-hero { border-radius: 1rem; padding: 1.25rem 1rem !important; }
+    .edeleg-hero h4, .dash-hero h4 { font-size: 1.25rem !important; }
+    .edeleg-hero .badge, .edeleg-hero .hero-chip { font-size: 0.7rem; padding: 0.25rem 0.6rem; }
+
+    .table-modern thead th { font-size: 0.66rem; }
+    .table-modern tbody td { padding: 0.7rem 0.75rem; }
+    .table > :not(caption) > * > * { white-space: normal; }
+
+    .card { border-radius: 1rem !important; }
+    .card-body { padding: 1rem; }
+
+    .modal-dialog { margin: 0.5rem; }
+    .modal-dialog-scrollable .modal-body { max-height: calc(100vh - 130px); }
+
+    .breadcrumb { font-size: 0.78rem; }
+    .count-up { font-size: 1.5rem !important; }
+    .stat-glyph { width: 42px; height: 42px; font-size: 19px; }
+    .glance-card .d-flex.gap-4 { gap: 0.75rem !important; }
+    .notification-dropdown { width: 100vw; max-width: 100vw; }
+
+    .fc-toolbar.fc-header-toolbar { flex-direction: column; gap: 0.5rem; }
+    .fc .fc-toolbar-title { font-size: 1rem !important; }
+    #agenda-calendar-dashboard, #agenda-detail-calendar, #agendaCal { min-height: 400px !important; }
+}
